@@ -4,35 +4,52 @@
 
 function getAllDirectors(moviesArray) {
     const alldirectors = moviesArray.map((movie) => {
-        return movie.director;
+        return movie.director
       });
 
-      return alldirectors;
+      return alldirectors
 } 
 
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
 function howManyMovies(moviesArray) {
     const dramaMovies = moviesArray.filter((movies) => {
-        return movies.director.includes("Steven Spielberg");
+        return movies.director.includes("Steven Spielberg")
     }).filter((movies) => {
         return movies.genre.includes("Drama");});
 
-    return dramaMovies.length;
+    return dramaMovies.length
 }
 
 
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
-function scoresAverage(moviesArray) {}
+function scoresAverage(moviesArray) {
+    const scoresTotal = moviesArray.reduce((valorAnt, valorAtual) => valorAnt + valorAtual.score / moviesArray.length, 0);
+      return Number(scoresTotal.toFixed(2))
+
+}
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
-function dramaMoviesScore(moviesArray) {}
+function dramaMoviesScore(moviesArray) { 
+    const dramaMoviesScore = moviesArray.filter((movies) => {return movies.genre.includes("Drama")}).reduce((valorAnt, valorAtual) =>valorAnt + valorAtual.score / moviesArray.length,0);
+  return Number(dramaMoviesScore.toFixed(2));
+}
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
-function orderByYear(moviesArray) {}
+function orderByYear(moviesArray) {
+    const orderYears = moviesArray.sort((a, b) => a.year - b.year)
+  const orderYearsf = orderYears.map((valorAtual) => valorAtual).sort((a, b) => a.title - b.title);
+  return orderYearsf;
+
+}
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
-function orderAlphabetically(moviesArray) {}
+function orderAlphabetically(moviesArray) {
+
+
+
+    
+}
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {}
